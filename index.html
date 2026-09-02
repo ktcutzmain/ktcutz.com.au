@@ -1,384 +1,995 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KT Cutz | Barber</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <title>KT Cutz | Barber</title>
 
-html {
-  scroll-behavior: smooth;
-}
+  <meta
+    name="description"
+    content="KT Cutz — clean cuts, sharp fades, beard trims and eyebrow shaping. Book your appointment online."
+  >
 
-body {
-  font-family: Arial, sans-serif;
-  background: #050909;
-  color: white;
-}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: #050909;
-  border-bottom: 1px solid #123c3a;
-  padding: 18px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    :root {
+      --black: #050707;
+      --dark: #080d0d;
+      --card: #0d1515;
+      --teal: #18d5c6;
+      --teal-light: #55eee2;
+      --white: #f5fffe;
+      --grey: #8d9a99;
+      --line: rgba(24, 213, 198, 0.18);
+    }
 
-.logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-.logo span {
-  color: #19d3c5;
-}
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
 
-nav a {
-  color: #aaa;
-  text-decoration: none;
-  margin-left: 25px;
-}
+    /* ================= NAV ================= */
 
-nav a:hover {
-  color: #19d3c5;
-}
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
 
-.hero {
-  min-height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  background: radial-gradient(circle at center, #103331 0%, #050909 60%);
-}
+      background: rgba(5, 7, 7, 0.82);
+      backdrop-filter: blur(18px);
 
-.hero h1 {
-  font-size: clamp(60px, 13vw, 120px);
-  font-weight: 900;
-  letter-spacing: -5px;
-}
+      border-bottom: 1px solid var(--line);
+    }
 
-.hero h1 span {
-  color: #19d3c5;
-}
+    .nav-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 25px;
 
-.hero p {
-  color: #aaa;
-  font-size: 19px;
-  margin: 20px auto 30px;
-  max-width: 600px;
-}
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-.btn {
-  display: inline-block;
-  background: #19d3c5;
-  color: #03100f;
-  padding: 16px 28px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 900;
-  margin: 5px;
-}
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
 
-.btn:hover {
-  background: #55e9df;
-}
+    .logo span {
+      color: var(--teal);
+    }
 
-.btn-outline {
-  background: transparent;
-  color: #19d3c5;
-  border: 1px solid #19d3c5;
-}
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
 
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
-}
+    .nav-links a {
+      color: #aab8b7;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
 
-.title {
-  text-align: center;
-  font-size: 38px;
-  margin-bottom: 10px;
-}
+    .nav-links a:hover {
+      color: var(--teal);
+    }
 
-.subtitle {
-  text-align: center;
-  color: #888;
-  margin-bottom: 40px;
-}
+    /* ================= HERO ================= */
 
-.prices {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+    .hero {
+      min-height: 100vh;
 
-.card {
-  background: #0b1515;
-  border: 1px solid #123c3a;
-  border-radius: 18px;
-  padding: 30px;
-  text-align: center;
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-.card h3 {
-  font-size: 22px;
-}
+      text-align: center;
 
-.price {
-  color: #19d3c5;
-  font-size: 34px;
-  font-weight: 900;
-  margin: 18px 0;
-}
+      padding: 120px 20px 80px;
 
-.card p {
-  color: #999;
-  line-height: 1.5;
-}
+      position: relative;
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(24, 213, 198, 0.15),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(24, 213, 198, 0.08),
+          transparent 40%
+        ),
+        var(--black);
+    }
 
-.gallery-box {
-  height: 230px;
-  background: #0b1515;
-  border: 1px dashed #19d3c5;
-  border-radius: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #777;
-  padding: 20px;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
 
-.booking {
-  background: linear-gradient(135deg, #0d2928, #071010);
-  border: 1px solid #123c3a;
-  border-radius: 25px;
-  padding: 60px 25px;
-  text-align: center;
-}
+      border-radius: 50%;
 
-.booking p {
-  color: #aaa;
-  margin: 15px auto 30px;
-  max-width: 600px;
-}
+      background: rgba(24, 213, 198, 0.06);
 
-.contact {
-  text-align: center;
-}
+      filter: blur(90px);
 
-.contact p {
-  color: #aaa;
-  margin: 15px;
-}
+      pointer-events: none;
+    }
 
-.contact a {
-  color: #19d3c5;
-  text-decoration: none;
-}
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
 
-footer {
-  border-top: 1px solid #123c3a;
-  padding: 30px;
-  text-align: center;
-  color: #666;
-}
+    .tag {
+      display: inline-block;
 
-@media (max-width: 700px) {
-  nav {
-    padding: 15px 20px;
-  }
+      padding: 8px 14px;
 
-  nav div:last-child {
-    display: none;
-  }
+      border: 1px solid var(--line);
+      border-radius: 100px;
 
-  .prices,
-  .gallery {
-    grid-template-columns: 1fr;
-  }
+      color: var(--teal);
 
-  .hero h1 {
-    font-size: 65px;
-  }
-}
-</style>
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: "Anton", Impact, sans-serif;
+
+      font-size: clamp(80px, 15vw, 180px);
+
+      line-height: 0.85;
+
+      letter-spacing: -2px;
+
+      text-transform: uppercase;
+    }
+
+    .hero h1 span {
+      color: var(--teal);
+
+      text-shadow:
+        0 0 20px rgba(24, 213, 198, 0.25),
+        0 0 70px rgba(24, 213, 198, 0.12);
+    }
+
+    .hero-text {
+      max-width: 650px;
+
+      margin: 30px auto;
+
+      color: var(--grey);
+
+      font-size: 17px;
+
+      line-height: 1.7;
+    }
+
+    /* ================= BUTTONS ================= */
+
+    .buttons {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-width: 170px;
+
+      padding: 16px 25px;
+
+      border-radius: 10px;
+
+      text-decoration: none;
+
+      font-weight: 900;
+
+      font-size: 14px;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+
+      color: #03100f;
+
+      box-shadow:
+        0 0 30px rgba(24, 213, 198, 0.12);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-light);
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 10px 35px rgba(24, 213, 198, 0.2);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--line);
+
+      color: var(--teal);
+
+      background: rgba(24, 213, 198, 0.03);
+    }
+
+    .btn-outline:hover {
+      background: rgba(24, 213, 198, 0.09);
+
+      transform: translateY(-3px);
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      max-width: 1200px;
+
+      margin: auto;
+
+      padding: 100px 25px;
+    }
+
+    .section-heading {
+      text-align: center;
+
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: var(--teal);
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      font-family: "Anton", Impact, sans-serif;
+
+      font-size: 55px;
+
+      letter-spacing: 1px;
+    }
+
+    .section-heading p {
+      max-width: 600px;
+
+      margin: 12px auto 0;
+
+      color: var(--grey);
+
+      line-height: 1.6;
+    }
+
+    /* ================= PRICES ================= */
+
+    .services {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .service {
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18, 37, 36, 0.9),
+          rgba(8, 13, 13, 0.95)
+        );
+
+      border: 1px solid var(--line);
+
+      border-radius: 18px;
+
+      padding: 30px;
+
+      transition:
+        transform 0.25s,
+        border 0.25s;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+
+      border-color:
+        rgba(24, 213, 198, 0.5);
+    }
+
+    .service-icon {
+      font-size: 25px;
+
+      margin-bottom: 20px;
+    }
+
+    .service h3 {
+      font-size: 19px;
+
+      margin-bottom: 8px;
+    }
+
+    .service p {
+      color: var(--grey);
+
+      font-size: 14px;
+
+      line-height: 1.6;
+
+      min-height: 45px;
+    }
+
+    .service-bottom {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-top: 25px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid var(--line);
+    }
+
+    .price {
+      color: var(--teal);
+
+      font-size: 28px;
+
+      font-weight: 900;
+    }
+
+    /* ================= GALLERY ================= */
+
+    .gallery {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 18px;
+    }
+
+    .gallery-item {
+      height: 300px;
+
+      border-radius: 18px;
+
+      border: 1px solid var(--line);
+
+      background:
+        linear-gradient(
+          145deg,
+          #0e1a1a,
+          #080d0d
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      color: #53605f;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      overflow: hidden;
+
+      transition: 0.25s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.015);
+
+      border-color:
+        rgba(24, 213, 198, 0.45);
+    }
+
+    /* ================= BOOKING ================= */
+
+    .booking-box {
+      position: relative;
+
+      overflow: hidden;
+
+      text-align: center;
+
+      border-radius: 25px;
+
+      padding: 80px 25px;
+
+      border: 1px solid var(--line);
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(24, 213, 198, 0.14),
+          transparent 50%
+        ),
+        #091211;
+    }
+
+    .booking-box h2 {
+      font-family: "Anton", Impact, sans-serif;
+
+      font-size: clamp(45px, 7vw, 75px);
+
+      line-height: 0.95;
+    }
+
+    .booking-box h2 span {
+      color: var(--teal);
+    }
+
+    .booking-box p {
+      max-width: 600px;
+
+      margin: 20px auto 30px;
+
+      color: var(--grey);
+
+      line-height: 1.7;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-details {
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+
+      margin-top: 35px;
+    }
+
+    .contact-card {
+      min-width: 240px;
+
+      padding: 20px;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+
+      border-radius: 14px;
+    }
+
+    .contact-card small {
+      display: block;
+
+      color: #667271;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      font-weight: 800;
+
+      margin-bottom: 7px;
+    }
+
+    .contact-card a {
+      color: var(--teal);
+
+      font-weight: 800;
+
+      text-decoration: none;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+
+      text-align: center;
+
+      padding: 35px 20px;
+
+      color: #566160;
+
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: var(--teal);
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero h1 {
+        font-size: 75px;
+      }
+
+      .services,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item {
+        height: 250px;
+      }
+
+      section {
+        padding: 75px 18px;
+      }
+
+      .section-heading h2 {
+        font-size: 45px;
+      }
+
+      .buttons {
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+      .btn {
+        width: min(100%, 300px);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">KT <span>CUTZ</span></div>
+<!-- ================= NAVIGATION ================= -->
 
-  <div>
-    <a href="#prices">Prices</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#book">Book</a>
-    <a href="#contact">Contact</a>
+<nav>
+  <div class="nav-inner">
+
+    <div class="logo">
+      KT <span>CUTZ</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#prices">PRICES</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#book">BOOK</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
   </div>
 </nav>
 
-<section class="hero">
 
-  <div>
-    <p style="color:#19d3c5;font-weight:bold;letter-spacing:2px;">
-      FRESH CUTS • CLEAN FADES
+<!-- ================= HERO ================= -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="tag">
+      MELBOURNE • BARBER
+    </div>
+
+    <h1>
+      KT <span>CUTZ</span>
+    </h1>
+
+    <p class="hero-text">
+      Clean cuts. Sharp fades. Fresh look.
+      <br>
+      Beginner-friendly prices with every cut finished right.
     </p>
 
-    <h1>KT <span>CUTZ</span></h1>
+    <div class="buttons">
 
-    <p>
-      Sharp fades, clean cuts and fresh styles.
-      Book your next appointment with KT Cutz.
-    </p>
+      <a
+        class="btn btn-primary"
+        href="https://calendar.app.google/n1HzJee9wZwCrRqz8"
+        target="_blank"
+        rel="noopener">
+        BOOK NOW
+      </a>
 
-    <a
-      class="btn"
-      href="https://calendar.app.google/n1HzJee9wZwCrRqz8"
-      target="_blank">
-      BOOK NOW
-    </a>
+      <a
+        class="btn btn-outline"
+        href="#prices">
+        VIEW PRICES
+      </a>
 
-    <a class="btn btn-outline" href="#prices">
-      VIEW PRICES
-    </a>
+    </div>
+
   </div>
 
-</section>
+</header>
+
+
+<!-- ================= PRICES ================= -->
 
 <section id="prices">
 
-  <h2 class="title">PRICES</h2>
+  <div class="section-heading">
 
-  <p class="subtitle">
-    Simple prices. Fresh results.
-  </p>
-
-  <div class="prices">
-
-    <div class="card">
-      <h3>Haircut</h3>
-      <div class="price">$25</div>
-      <p>
-        Clean, fresh haircut finished to your style.
-      </p>
+    <div class="section-label">
+      PRICE LIST
     </div>
 
-    <div class="card">
-      <h3>Skin Fade</h3>
-      <div class="price">$30</div>
-      <p>
-        Sharp skin fade with a clean finish.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Haircut + Beard</h3>
-      <div class="price">$35</div>
-      <p>
-        Full haircut and beard tidy-up.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-<section id="gallery">
-
-  <h2 class="title">GALLERY</h2>
-
-  <p class="subtitle">
-    Check out the work.
-  </p>
-
-  <div class="gallery">
-
-    <div class="gallery-box">
-      YOUR CUT PHOTO
-    </div>
-
-    <div class="gallery-box">
-      YOUR CUT PHOTO
-    </div>
-
-    <div class="gallery-box">
-      YOUR CUT PHOTO
-    </div>
-
-  </div>
-
-</section>
-
-<section id="book">
-
-  <div class="booking">
-
-    <h2 class="title">
-      READY FOR A FRESH CUT?
+    <h2>
+      SERVICES
     </h2>
 
     <p>
-      Choose a time that works for you and book your
-      KT Cutz appointment online.
+      Simple prices while KT Cutz builds the brand.
+      No designs available.
+    </p>
+
+  </div>
+
+
+  <div class="services">
+
+
+    <div class="service">
+
+      <div class="service-icon">✂️</div>
+
+      <h3>
+        Haircut
+      </h3>
+
+      <p>
+        Clean and fresh haircut finished to your style.
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="price">
+          $15
+        </span>
+
+        <span>
+          30 MIN
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="service-icon">🔥</div>
+
+      <h3>
+        Skin Fade
+      </h3>
+
+      <p>
+        Sharp skin fade with a clean finish.
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="price">
+          $20
+        </span>
+
+        <span>
+          30 MIN
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="service-icon">🧔</div>
+
+      <h3>
+        Beard
+      </h3>
+
+      <p>
+        Beard trim and tidy-up.
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="price">
+          $10
+        </span>
+
+        <span>
+          ADD-ON
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="service-icon">👁️</div>
+
+      <h3>
+        Eyebrows
+      </h3>
+
+      <p>
+        Clean eyebrow shaping to finish your look.
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="price">
+          $5
+        </span>
+
+        <span>
+          ADD-ON
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="service-icon">💈</div>
+
+      <h3>
+        Haircut + Beard
+      </h3>
+
+      <p>
+        Fresh haircut with a beard tidy-up.
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="price">
+          $25
+        </span>
+
+        <span>
+          COMBO
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="service">
+
+      <div class="service-icon">💯</div>
+
+      <h3>
+        Full Package
+      </h3>
+
+      <p>
+        Haircut + beard + eyebrows.
+      </p>
+
+      <div class="service-bottom">
+
+        <span class="price">
+          $30
+        </span>
+
+        <span>
+          COMBO
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+  <div class="section-heading">
+
+    <div class="section-label">
+      THE WORK
+    </div>
+
+    <h2>
+      GALLERY
+    </h2>
+
+    <p>
+      More cuts coming soon.
+    </p>
+
+  </div>
+
+
+  <div class="gallery">
+
+    <div class="gallery-item">
+      ADD YOUR CUT PHOTO
+    </div>
+
+    <div class="gallery-item">
+      ADD YOUR CUT PHOTO
+    </div>
+
+    <div class="gallery-item">
+      ADD YOUR CUT PHOTO
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<section id="book">
+
+  <div class="booking-box">
+
+    <h2>
+      GET A <span>FRESH CUT.</span>
+    </h2>
+
+    <p>
+      Pick an available time and book your KT Cutz appointment online.
+      You'll receive your booking confirmation after completing the form.
     </p>
 
     <a
-      class="btn"
+      class="btn btn-primary"
       href="https://calendar.app.google/n1HzJee9wZwCrRqz8"
-      target="_blank">
-      BOOK YOUR CUT
+      target="_blank"
+      rel="noopener">
+      BOOK YOUR APPOINTMENT
     </a>
 
   </div>
 
 </section>
 
+
+<!-- ================= CONTACT ================= -->
+
 <section id="contact" class="contact">
 
-  <h2 class="title">CONTACT KT CUTZ</h2>
+  <div class="section-heading">
 
-  <p>
-    Call:
-    <a href="tel:0472687576">
-      0472 687 576
-    </a>
-  </p>
+    <div class="section-label">
+      GET IN TOUCH
+    </div>
 
-  <p>
-    TikTok:
-    <a
-      href="https://www.tiktok.com/@ktcutzmain"
-      target="_blank">
-      @ktcutzmain
-    </a>
-  </p>
+    <h2>
+      CONTACT
+    </h2>
+
+  </div>
+
+
+  <div class="contact-details">
+
+    <div class="contact-card">
+
+      <small>
+        CALL / BOOK
+      </small>
+
+      <a href="tel:0472687576">
+        0472 687 576
+      </a>
+
+    </div>
+
+
+    <div class="contact-card">
+
+      <small>
+        TIKTOK
+      </small>
+
+      <a
+        href="https://www.tiktok.com/@ktcutzmain"
+        target="_blank"
+        rel="noopener">
+        @ktcutzmain
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
+
+  <strong>KT CUTZ</strong>
+
+  <br><br>
+
   © 2026 KT Cutz. All rights reserved.
+
 </footer>
+
 
 </body>
 </html>
